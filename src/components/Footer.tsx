@@ -19,6 +19,7 @@ const Footer: FunctionComponent = () => {
             {isModalOpened && <Modal setIsModalOpened={setIsModalOpened} />}
             
             <footer>
+                <div className="footer-content">
                 <div className="footer-links">
                     <Logo />
                     <StoreLinks />
@@ -32,6 +33,7 @@ const Footer: FunctionComponent = () => {
                     </div>
                 </div>
                 <p className="copyright">© Copyright StartApp. 2023-2024</p>
+                </div>
             </footer>
         </>
     );

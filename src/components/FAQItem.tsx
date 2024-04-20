@@ -12,7 +12,7 @@ const FAQItem: FunctionComponent<FAQItemProps> = ({ qTitle, qContent }) => {
                 <h3>{qTitle}</h3>
                 <Arrow />
             </div>
-            <div className={"faq-content " + (isAnswerOpened && "opened")}>
+            <div className={"faq-content " + (isAnswerOpened ? "opened" : 'closed')}>
                 {qContent}
             </div>
         </li>

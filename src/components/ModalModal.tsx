@@ -46,7 +46,7 @@ const Modal: FunctionComponent<ModalProps> = ({setIsModalOpened}) => {
                 <input type="text" placeholder="Email*" required onChange={e => setEmailField(e.target.value)}/>
                 <input type="text" placeholder="Номер телефона"  onChange={e => setPhoneField(e.target.value)}/>
                 <textarea placeholder="Ваш вопрос"  onChange={e => setTextareaField(e.target.value)}/>
-                <Button text="обратная связь"/>
+                <Button text="Обратная связь"/>
             </form>
         </div>
     );
