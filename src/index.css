@@ -39,11 +39,12 @@ button,
 a,
 .faq-item {
     cursor: pointer;
+    transition: all 0.5s;
 }
 
 
 button:hover {
-    transform: scale(1.05);
+    opacity: .7;
 }
 
 .text-accent {
@@ -384,6 +385,15 @@ footer {
             display: flex;
             justify-content: space-between;
             margin-bottom: 1rem;
+
+            .close-btn{
+                cursor: pointer;
+                transition: all .5s;
+
+                &:hover{
+                    scale: 1.1;
+                }
+            }
         }
 
         input,
@@ -397,6 +407,14 @@ footer {
         textarea {
             height: 8rem;
             resize: vertical;
+        }
+
+        .form-error{
+            border: 1px solid red;
+        }
+
+        label{
+            color: red;
         }
 
         button {

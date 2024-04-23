@@ -1,4 +1,4 @@
-import ButtonPropsType from "./ButtonPropstypre"
+import ButtonPropsType from "./ButtonPropsType"
 import ModalPropsType from "./ModalPropsType"
 import FeatureItemPropsType from "./FeatureItemPropsType"
 import FAQItemPropsType from "./FAQItemPropsType"
