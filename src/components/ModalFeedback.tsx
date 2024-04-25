@@ -44,6 +44,8 @@ const ModalFeedback: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
             console.log(data)
             console.log(status)
 
+            closeModal()
+
         } catch (error) {
             if (axios.isAxiosError(error)) {
 
@@ -69,8 +71,8 @@ const ModalFeedback: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
                     })
                     console.log(error.response?.data.detail)
                 } else {
-                    console.log('error message: ', error.response?.status);
-                    return error.message;
+                    console.log('error message: ', error.response?.data);
+                    return error;
                 }
             } else {
                 console.log('unexpected error: ', error);
