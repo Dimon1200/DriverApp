@@ -1,7 +1,7 @@
 import { FunctionComponent, useState } from "react";
 import Logo from "../ui/icons/Logo";
 import StoreLinks from "./StoreLinks";
-import Modal from "./ModalModal";
+import ModalFeedback from "./ModalFeedback";
 import Button from "../ui/Button";
 import { VKIcon } from "../ui/icons";
 
@@ -18,7 +18,7 @@ const Footer: FunctionComponent = () => {
 
     return (
         <>
-            {isModalOpened && <Modal setIsModalOpened={setIsModalOpened} />}
+            {isModalOpened && <ModalFeedback setIsModalOpened={setIsModalOpened} />}
 
             <footer>
                 <div className="footer-content">

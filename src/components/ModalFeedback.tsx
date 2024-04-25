@@ -9,7 +9,7 @@ import { FeedBackError, FeedBackRequest } from "../types/FeedBackTypes";
 
 
 
-const Modal: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
+const ModalFeedback: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
 
     // form logic
 
@@ -32,7 +32,7 @@ const Modal: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
 
             console.log(`${import.meta.env.VITE_API_URL}/form/feedback/`)
             const { data, status } = await axios.post<FeedBackRequest>(
-                `${import.meta.env.VITE_API_URL}/form/feedback`,
+                `${import.meta.env.VITE_API_URL}/form/feedback/`,
                 {
                     name: nameField,
                     email: emailField,
@@ -152,4 +152,4 @@ const Modal: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
     );
 };
 
-export default Modal;
+export default ModalFeedback;
