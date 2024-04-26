@@ -45,6 +45,7 @@ const ModalFeedback: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
             console.log(status)
 
             closeModal()
+            alert('Форма отправлена. Спасибо за обратную связь!')
 
         } catch (error) {
             if (axios.isAxiosError(error)) {
