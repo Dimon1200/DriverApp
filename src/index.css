@@ -46,6 +46,14 @@ a,
     transition: all 0.5s;
 }
 
+button:disabled{
+    background: #19224d!important;
+
+    &:hover{
+        opacity: 1;
+    }
+}
+
 
 button:hover {
     opacity: .7;
@@ -346,7 +354,6 @@ header {
 
 
         .opened {
-            opacity: 1;
             padding: 10px 0;
             opacity: 1;
             max-height: 1000px;

@@ -1,9 +1,9 @@
 import { FunctionComponent } from 'react'
 import { ButtonProps } from '../types/types'
 
-const Button: FunctionComponent<ButtonProps> = ({ text, onClick }) => {
+const Button: FunctionComponent<ButtonProps> = ({ text, onClick, disable }) => {
     return (
-        <button onClick={onClick}>{text}</button>
+        <button onClick={onClick} disabled={disable} >{text}</button>
     )
 }
 

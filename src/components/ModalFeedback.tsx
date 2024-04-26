@@ -23,10 +23,13 @@ const ModalFeedback: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
     const [phoneError, setPhoneError] = useState<Array<boolean | string>>([false, '']);
     const [questionError, setQuestionError] = useState<Array<boolean | string>>([false, '']);
 
+    const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false)
+
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setIsButtonDisabled(true)
 
         try {
 
@@ -44,8 +47,16 @@ const ModalFeedback: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
             console.log(data)
             console.log(status)
 
+            setNameField('')
+            setEmailField('')
+            setPhoneField('')
+            setQuestionField('')
+
             closeModal()
-            alert('Форма отправлена. Спасибо за обратную связь!')
+
+            setTimeout(() => {
+                alert('Форма отправлена. Спасибо за обратную связь!')
+            }, 300)
 
         } catch (error) {
             if (axios.isAxiosError(error)) {
@@ -81,13 +92,14 @@ const ModalFeedback: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
             }
         }
 
+        setIsButtonDisabled(false)
     }
 
     //modal logic
 
     const [modalAnimation, setModalAnimation] = useState<boolean>(true);
 
-    const closeModal = () => {
+    const closeModal = async () => {
         setModalAnimation(false)
         document.body.style.overflow = 'unset';
         setTimeout(() => {
@@ -97,11 +109,11 @@ const ModalFeedback: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
 
     return (
         <div className={"modal " + (modalAnimation ? 'modal-open' : 'modal-close')}>
-            <div className="modal-bg" onClick={closeModal}></div>
+            <div className="modal-bg" onClick={() => closeModal()}></div>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-title">
                     <h2>Обратная связь</h2>
-                    <span className="close-btn"><Close onClick={closeModal} /></span>
+                    <span className="close-btn"><Close onClick={() => closeModal()} /></span>
                 </div>
                 <input
                     className={nameError[0] ? 'form-error' : ''}
@@ -149,7 +161,7 @@ const ModalFeedback: FunctionComponent<ModalProps> = ({ setIsModalOpened }) => {
                 />
                 {questionError[0] && <label htmlFor="name">{questionError[1]}</label>}
 
-                <Button text="Обратная связь" />
+                <Button text="Обратная связь" disable={isButtonDisabled}/>
             </form>
         </div>
     );
